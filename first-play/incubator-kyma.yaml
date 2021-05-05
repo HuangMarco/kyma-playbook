@@ -1,0 +1,223 @@
+###################################################################
+# Kyma values.yaml
+###################################################################
+
+##########
+#  ---
+#  global:
+#    overrides:
+#      global.myKey1: myValue1
+#      global.myKey2: myValue2
+#    secretOverrides:
+#      global.adminPassword: "XXX==" # must be base64 encoded
+#      global.myKey1: mySecretValue1
+#      global.myKey2: mySecretValue2
+#
+# A map of global overrides which will be applied before the installation starts.
+# See also https://kyma-project.io/docs/master/root/kyma/#configuration-overview-overrides.
+# For all "secretOverrides", one "Secret" will be applied having the entries as data.
+# For "overrides", one "ConfigMap" gets applied with the overrides as its data.
+#
+# By default, no overrides will be applied.
+
+global:
+  overrides: {}
+  secretOverrides: {}
+
+##########
+#  ---
+#  components:
+#    component1:
+#      enabled: true
+#      namesapce: "kyma-system"
+#      overrides:
+#        myKey1: myValue1
+#        myKey2: myValue2
+#      secretOverrides:
+#        myKey1: mySecretValue1
+#        myKey2: mySecretValue2
+#    component2:
+#      ...
+#
+# A map of components with component-specific configuration which will be applied for installation.
+# From that map, the Kyma installation resource gets generated as well as the component-specific overrides.
+# Every component specifies if it is "enabled" and the "namespace" to be installed into.
+# If the component is "enabled", then an entry in the Kyma "installation" resource gets generated
+# using the supplied Namespace. See also https://kyma-project.io/docs/#configuration-custom-component-installation.
+# Filling the "overrides" attribute of a component will cause the generation of an override "ConfigMap"
+# having the component-specific installation label in place, see also https://kyma-project.io/docs/master/root/kyma/#configuration-overview-overrides.
+# Filling the "secretOverrides" attribute will cause the generation of a component-specific override "Secret".
+#
+# By default, all components which are part of the standard Kyma profile are enabled. No overrides are applied.
+# ATTENTION: Disabling a standard component might result in a broken installation of Kyma.
+
+components:
+  cluster-essentials:
+    enabled: true
+    namespace: "kyma-system"
+    overrides: {}
+    secretOverrides: {}
+  testing:
+    enabled: true
+    namespace: "kyma-system"
+    overrides: {}
+    secretOverrides: {}
+  istio:
+    enabled: true
+    namespace: "istio-system"
+    overrides: {}
+    secretOverrides: {}
+  xip-patch:
+    enabled: true
+    namespace: "kyma-installer"
+    overrides: {}
+    secretOverrides: {}
+  dex:
+    enabled: true
+    namespace: "kyma-system"
+    overrides: {}
+    secretOverrides: {}
+  ory:
+    enabled: true
+    namespace: "kyma-system"
+    overrides: {}
+    secretOverrides: {}
+  api-gateway:
+    enabled: true
+    namespace: "kyma-system"
+    overrides: {}
+    secretOverrides: {}
+  rafter:
+    enabled: true
+    namespace: "kyma-system"
+    overrides: {}
+    secretOverrides: {}
+  service-catalog:
+    enabled: true
+    namespace: "kyma-system"
+    overrides: {}
+    secretOverrides: {}
+  service-catalog-addons:
+    enabled: true
+    namespace: "kyma-system"
+    overrides: {}
+    secretOverrides: {}
+  helm-broker:
+    enabled: true
+    namespace: "kyma-system"
+    overrides: {}
+    secretOverrides: {}
+  eventing:
+    enabled: true
+    namespace: "kyma-system"
+    overrides: {}
+    secretOverrides: {}
+  core:
+    enabled: true
+    namespace: "kyma-system"
+    overrides: {}
+    secretOverrides: {}
+  cluster-users:
+    enabled: true
+    namespace: "kyma-system"
+    overrides: {}
+    secretOverrides: {}
+  logging:
+    enabled: true
+    namespace: "kyma-system"
+    overrides: {}
+    secretOverrides: {}
+  permission-controller:
+    enabled: true
+    namespace: "kyma-system"
+    overrides: {}
+    secretOverrides: {}
+  apiserver-proxy:
+    enabled: true
+    namespace: "kyma-system"
+    overrides: {}
+    secretOverrides: {}
+  iam-kubeconfig-service:
+    enabled: true
+    namespace: "kyma-system"
+    overrides: {}
+    secretOverrides: {}
+  serverless:
+    enabled: true
+    namespace: "kyma-system"
+    overrides: {}
+    secretOverrides: {}
+  application-connector:
+    enabled: true
+    namespace: "kyma-integration"
+    overrides: {}
+    secretOverrides: {}
+  tracing:
+    enabled: true
+    namespace: "kyma-system"
+    overrides: {}
+    secretOverrides: {}
+  monitoring:
+    enabled: true
+    namespace: "kyma-system"
+    overrides: {}
+    secretOverrides: {}
+  kiali:
+    enabled: true
+    namespace: "kyma-system"
+    overrides: {}
+    secretOverrides: {}
+  console:
+    enabled: true
+    namespace: "kyma-system"
+    overrides: {}
+    secretOverrides: {}
+  compass-runtime-agent:
+    enabled: false
+    namespace: "compass-system"
+    overrides: {}
+    secretOverrides: {}
+
+##########
+#  ---
+#  initializer:
+#    kyma: "X.X.X"
+#    name: "kyma-initializer"
+#    namespace: "kyma-installer"
+#    image: ""
+#    delay: 30
+#    resources: {}
+#    requires:
+#      k8s:
+#        version: "X.X"
+#      gardener:
+#        extensions: ""
+#
+# Configures the initializer jobs which apply the actual Kyma installer.
+# The initializer jobs are custom to this chart and will be replaced soon with the actual Kyma installer resources.
+# The initializer will use the specified "name", "image" and "namespace".
+# The jobs wait for conditions like having the installer up and running.
+# That waiting is done based on the "delay" in seconds.
+# A requirement check will be done before the installer gets applied.
+# For that, the required maximal Kubernetes version and Gardener extensions will be assured.
+
+initializer:
+  kyma: "1.21.0"
+  name: "kyma-initializer"
+  namespace: "kyma-installer"
+  image: eu.gcr.io/kyma-project/tpi/k8s-tools:20210407-86c769bd
+  delay: 30
+  resources:
+    limits:
+      cpu: 100m
+      memory: 128Mi
+    requests:
+      cpu: 50m
+      memory: 64Mi
+  requires:
+    k8s:
+      version: "<=1.19 >=1.16"
+    gardener:
+      extensions:
+      - "shoot-cert-service"
+      - "shoot-dns-service"
