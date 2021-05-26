@@ -1,6 +1,6 @@
 # first play
 
-## installation Kyma
+## Kyma Installation
 
 Follow [kyma instllation](https://kyma-project.io/docs/#installation-installation) to install the kyma. For this article, just use [kyma installation on cluster](https://kyma-project.io/docs/#installation-install-kyma-on-a-cluster) to install kyma in kubernetes cluster.
 
@@ -8,7 +8,7 @@ Follow [kyma instllation](https://kyma-project.io/docs/#installation-installatio
 finally follow the [install kyma in gardener](https://jam4.sapjam.com/blogs/show/YZm1zvh0pdnZua6fyT8LOT) and [another link](https://cxwiki.sap.com/pages/viewpage.action?spaceKey=ps&title=Kyma+on+Gardener) to start the installation. 
 -->
 
-### prerequisites
+### Prerequisites
 
 - kubernetes cluster preparation: choose version : <=1.19 >=1.16 ===> 1.18.17
 - minimun node number: 2
@@ -20,7 +20,7 @@ If the version is not the same as expected, below error shall showes itself:
 Unable to create the release: template: kyma/templates/_helpers.tpl:53:4: executing "kyma.checkRequirements" at <fail (printf "Unsupported Kubernetes version used on the cluster. Found '%s' but expected a version within range '%s'." $shootInfo.data.kubernetesVersion .Values.initializer.requires.k8s.version)>: error calling fail: Unsupported Kubernetes version used on the cluster. Found '1.20.5' but expected a version within range '<=1.19 >=1.16'.
 ```
 
-### install the kyma-cli
+### Install the kyma-cli
 
 ```sh
 ## install the kyma-cli
@@ -28,7 +28,7 @@ Unable to create the release: template: kyma/templates/_helpers.tpl:53:4: execut
 brew install kyma-cli # this will install the latest kyma version
 ```
 
-### install the kyma-release
+### Install the kyma-release
 
 ```sh
 # kyma version: 1.20.0
@@ -44,7 +44,7 @@ kyma install -s $KYMA_VERSION
 # kyma will install many components in the cluster
 ```
 
-### install the kyma-release on aws - 1.20
+### Install the kyma-release on aws - 1.20
 
 - k8s cluster based on gardener, version 1.20.5
 - secret: trial-secretbingding-aws
@@ -69,7 +69,7 @@ Events:
 ```
 
 
-## started
+## Started
 
 follow the [kyma tutorial](https://kyma-project.io/docs/root/getting-started/) to do the first play.
 
@@ -83,7 +83,7 @@ follow the [kyma tutorial](https://kyma-project.io/docs/root/getting-started/) t
 
 
 
-## tutorial
+## Tutorial
 
 https://kyma-project.io/docs/components/serverless
 
