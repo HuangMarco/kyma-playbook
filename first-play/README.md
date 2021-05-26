@@ -2,9 +2,9 @@
 
 ## installation kyma on gardener cluster
 
-follow [kyma instllation](https://kyma-project.io/docs/#installation-installation) to install the kyma. for this article, just use [kyma installation on cluster](https://kyma-project.io/docs/#installation-install-kyma-on-a-cluster) to install kyma in kubernetes cluster.
+follow [kyma instllation](https://kyma-project.io/docs/#installation-installation) to install the kyma. For this article, just use [kyma installation on cluster](https://kyma-project.io/docs/#installation-install-kyma-on-a-cluster) to install kyma in kubernetes cluster.
 
-finally follow the [install kyma in gardener](https://jam4.sapjam.com/blogs/show/YZm1zvh0pdnZua6fyT8LOT) and [another link](https://cxwiki.sap.com/pages/viewpage.action?spaceKey=ps&title=Kyma+on+Gardener) to start the installation.
+[comment]: #  (finally follow the [install kyma in gardener](https://jam4.sapjam.com/blogs/show/YZm1zvh0pdnZua6fyT8LOT) and [another link](https://cxwiki.sap.com/pages/viewpage.action?spaceKey=ps&title=Kyma+on+Gardener) to start the installation.)
 
 ```txt
 Unable to create the release: template: kyma/templates/_helpers.tpl:53:4: executing "kyma.checkRequirements" at <fail (printf "Unsupported Kubernetes version used on the cluster. Found '%s' but expected a version within range '%s'." $shootInfo.data.kubernetesVersion .Values.initializer.requires.k8s.version)>: error calling fail: Unsupported Kubernetes version used on the cluster. Found '1.20.5' but expected a version within range '<=1.19 >=1.16'.
