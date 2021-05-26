@@ -72,3 +72,9 @@ time.eu.warsaw
 
 ##### Mix Wildcards
 
+- 通配符`*`和`>`可以组合使用，比如`*.*.east.>`可以匹配到`time.us.east.atlanta`
+
+## Publish-Subscribe
+
+- One-to-Many,一个publisher发送到消息到某个subject上之后，任何订阅该subject的subscriber都将接收到消息
+- Subscriber也可以监听wildcard subjects,通过正则方式(nats也支持你这样做)
