@@ -1,12 +1,12 @@
 # first play
 
-## installation kyma on gardener cluster
+## installation Kyma
 
-follow [kyma instllation](https://kyma-project.io/docs/#installation-installation) to install the kyma. For this article, just use [kyma installation on cluster](https://kyma-project.io/docs/#installation-install-kyma-on-a-cluster) to install kyma in kubernetes cluster.
+Follow [kyma instllation](https://kyma-project.io/docs/#installation-installation) to install the kyma. For this article, just use [kyma installation on cluster](https://kyma-project.io/docs/#installation-install-kyma-on-a-cluster) to install kyma in kubernetes cluster.
 
-
-[comment]: # (finally follow the [install kyma in gardener](https://jam4.sapjam.com/blogs/show/YZm1zvh0pdnZua6fyT8LOT) and [another link](https://cxwiki.sap.com/pages/viewpage.action?spaceKey=ps&title=Kyma+on+Gardener) to start the installation. )
-
+<!-->
+finally follow the [install kyma in gardener](https://jam4.sapjam.com/blogs/show/YZm1zvh0pdnZua6fyT8LOT) and [another link](https://cxwiki.sap.com/pages/viewpage.action?spaceKey=ps&title=Kyma+on+Gardener) to start the installation. 
+-->
 
 ### prerequisites
 
