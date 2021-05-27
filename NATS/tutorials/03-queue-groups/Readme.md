@@ -102,7 +102,7 @@ Published [first.subscriber] : 'first-message'
 
 ### 实验结果
 
-- subscriber其实就是subject
+- queue subscriber其实就是subject
 - 上述验证不同nats客户端都具备类似能力，接收消息
 - 订制queue subsriber和queue group的能力反转到了客户端
 - 如果一个queue group有多个subscriber，那么有且只有一个subscriber能接收到publisher发送的消息
