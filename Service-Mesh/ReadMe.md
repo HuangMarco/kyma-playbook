@@ -24,4 +24,12 @@
 
 ![service mesh](service-mesh.jpg)
 
+- 通过运用side car proxy,每个service会多出一个side car proxy component
+- side car proxy component与service会离的非常近，在同一个virtual machine，有相同的network namespace
+- 如果是Kubernetes，那么会处于同一个pod，但是在kyma环境下，会在同一个ns下产生2个pod，其中一个是service的，一个是side car proxy
+- side car proxy负责所有的in-and-out traffic,以及上图中的所有tasks，变成了service的代言人
+- 多个service之间沟通的媒介变为side car proxy component，每个service都有该component
+
+
 ![Side Car Proxy](side-car-proxy.jpg)
+![Side Car Proxy](side-car-proxy-2.jpg)
